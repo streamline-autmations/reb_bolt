@@ -1,0 +1,13 @@
+node_modules/*
+dist/*
+public/*
+RB IMAGES/*
+
+# Optional: ignore heavy file types too
+*.psd
+*.ai
+*.mp4
+*.mov
+*.zip
+*.rar
+
