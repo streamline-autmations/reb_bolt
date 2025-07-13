@@ -24,9 +24,6 @@ const Header: React.FC = () => {
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const location = useLocation();
 
-  // Get categories and subcategories from data
-  const categories = getAllCategories();
-  
   const navItems: NavItem[] = [
     { label: 'Home', path: '/' },
     {
@@ -39,7 +36,7 @@ const Header: React.FC = () => {
           ]
         },
         {
-          section: '🏫 School & Team Sports',
+          section: 'School & Team Sports',
           items: [
             { label: 'View All School & Team Sports', path: '/products/category/school-team-sports' },
             { label: 'Rugby Kits', path: '/products/subcategory/rugby-kits' },
@@ -50,7 +47,7 @@ const Header: React.FC = () => {
           ],
         },
         {
-          section: '⚽ Other Sports & Clubs',
+          section: 'Other Sports & Clubs',
           items: [
             { label: 'View All Other Sports & Clubs', path: '/products/category/other-sports-clubs' },
             { label: 'Soccer Kits', path: '/products/subcategory/soccer-kits' },
@@ -60,7 +57,7 @@ const Header: React.FC = () => {
           ],
         },
         {
-          section: '🎓 Schoolwear & Matric Apparel',
+          section: 'Schoolwear & Matric Apparel',
           items: [
             { label: 'View All Schoolwear & Matric', path: '/products/category/schoolwear-matric' },
             { label: 'Matric Jackets', path: '/products/subcategory/matric-jackets' },
@@ -70,7 +67,7 @@ const Header: React.FC = () => {
           ],
         },
         {
-          section: '🧑‍💼 Corporate & Staff Apparel',
+          section: 'Corporate & Staff Apparel',
           items: [
             { label: 'View All Corporate & Staff', path: '/products/category/corporate-staff' },
             { label: 'Shirts & Tops', path: '/products/subcategory/shirts-tops' },
@@ -81,7 +78,7 @@ const Header: React.FC = () => {
           ],
         },
         {
-          section: '🏋️ Gym & Fitness Apparel',
+          section: 'Gym & Fitness Apparel',
           items: [
             { label: 'View All Gym & Fitness', path: '/products/category/gym-fitness' },
             { label: 'Tops', path: '/products/subcategory/gym-tops' },
@@ -91,7 +88,7 @@ const Header: React.FC = () => {
           ],
         },
         {
-          section: '🎒 Accessories & Branding',
+          section: 'Accessories & Branding',
           items: [
             { label: 'View All Accessories & Branding', path: '/products/category/accessories-branding' },
             { label: 'Socks', path: '/products/subcategory/socks' },

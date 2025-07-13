@@ -9,12 +9,12 @@ import FAQSection from '../components/ui/FAQSection';
 
 const HomePage: React.FC = () => {
   const categories = [
-    { name: 'School Sports', image: '/category_rugby.jpg', description: 'Rugby, netball, cricket, hockey & athletics', path: '/products/category/school-team-sports' },
-    { name: 'Other Sports', image: 'https://images.pexels.com/photos/274422/pexels-photo-274422.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=2', description: 'Soccer, golf, darts & fishing gear', path: '/products/category/other-sports-clubs' },
-    { name: 'Schoolwear', image: '/category_matric.jpg', description: 'Matric jackets, tracksuits & school apparel', path: '/products/category/schoolwear-matric' },
-    { name: 'Corporate', image: '/category_golf.jpg', description: 'Staff uniforms, jackets & corporate wear', path: '/products/category/corporate-staff' },
-    { name: 'Gym & Fitness', image: '/category_tracksuits.jpg', description: 'Performance wear & fitness apparel', path: '/products/category/gym-fitness' },
-    { name: 'Accessories', image: '/category_hockey.jpg', description: 'Socks, caps, bags & branding items', path: '/products/category/accessories-branding' }
+    { name: 'School & Team Sports', image: '/category_rugby.jpg', description: 'Rugby, netball, cricket, hockey & athletics', path: '/products/category/school-team-sports' },
+    { name: 'Other Sports & Clubs', image: 'https://images.pexels.com/photos/274422/pexels-photo-274422.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=2', description: 'Soccer, golf, darts & fishing gear', path: '/products/category/other-sports-clubs' },
+    { name: 'Schoolwear & Matric Apparel', image: '/category_matric.jpg', description: 'Matric jackets, tracksuits & school apparel', path: '/products/category/schoolwear-matric' },
+    { name: 'Corporate & Staff Apparel', image: '/category_golf.jpg', description: 'Staff uniforms, jackets & corporate wear', path: '/products/category/corporate-staff' },
+    { name: 'Gym & Fitness Apparel', image: '/category_tracksuits.jpg', description: 'Performance wear & fitness apparel', path: '/products/category/gym-fitness' },
+    { name: 'Accessories & Branding', image: '/category_hockey.jpg', description: 'Socks, caps, bags & branding items', path: '/products/category/accessories-branding' }
   ];
   
   return (

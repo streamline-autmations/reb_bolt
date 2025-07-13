@@ -31,6 +31,7 @@ import AthleticsKitsPage from './pages/products/AthleticsKitsPage';
 
 import MatricJacketsPage from './pages/products/MatricJacketsPage';
 import MatricJacketPage from './pages/products/MatricJacketPage';
+import GenericProductPage from './pages/products/GenericProductPage';
 
 import GolfApparelPage from './pages/products/GolfApparelPage';
 import DartsShirtsPage from './pages/products/DartsShirtsPage';
@@ -92,21 +93,53 @@ function App() {
             
             {/* Product Routes - simplified */}
             <Route path="/products/rugby-kits" element={<RugbyKitsPage />} />
-            <Route path="/products/rugby-kits/*" element={<RugbyJerseysPage />} />
+            <Route path="/products/rugby-jerseys" element={<RugbyJerseysPage />} />
+            <Route path="/products/rugby-shorts" element={<GenericProductPage title="Rugby Shorts" category="School & Team Sports" subcategory="Rugby Kits" />} />
+            <Route path="/products/full-rugby-kit" element={<GenericProductPage title="Full Rugby Kit" category="School & Team Sports" subcategory="Rugby Kits" />} />
+            <Route path="/products/rugby-flag-line" element={<GenericProductPage title="Rugby Flag Line" category="School & Team Sports" subcategory="Rugby Kits" />} />
+            <Route path="/products/pole-protectors" element={<GenericProductPage title="Pole Protectors" category="School & Team Sports" subcategory="Rugby Kits" />} />
             
             <Route path="/products/netball-kits" element={<NetballKitsPage />} />
-            <Route path="/products/netball-kits/*" element={<NetballDressPage />} />
+            <Route path="/products/netball-dresses" element={<NetballDressPage />} />
+            <Route path="/products/netball-skirts" element={<GenericProductPage title="Netball Skirts" category="School & Team Sports" subcategory="Netball Kits" />} />
+            <Route path="/products/full-netball-kit" element={<GenericProductPage title="Full Netball Kit" category="School & Team Sports" subcategory="Netball Kits" />} />
             
             <Route path="/products/hockey-kits" element={<HockeyKitsPage />} />
+            <Route path="/products/hockey-jerseys" element={<GenericProductPage title="Hockey Jerseys" category="School & Team Sports" subcategory="Hockey Kits" />} />
+            <Route path="/products/hockey-shorts" element={<GenericProductPage title="Hockey Shorts" category="School & Team Sports" subcategory="Hockey Kits" />} />
+            <Route path="/products/full-hockey-kit" element={<GenericProductPage title="Full Hockey Kit" category="School & Team Sports" subcategory="Hockey Kits" />} />
+            
             <Route path="/products/soccer-kits" element={<SoccerKitsPage />} />
+            <Route path="/products/soccer-jerseys" element={<GenericProductPage title="Soccer Jerseys" category="Other Sports & Clubs" subcategory="Soccer Kits" />} />
+            <Route path="/products/soccer-shorts" element={<GenericProductPage title="Soccer Shorts" category="Other Sports & Clubs" subcategory="Soccer Kits" />} />
+            <Route path="/products/full-soccer-kit" element={<GenericProductPage title="Full Soccer Kit" category="Other Sports & Clubs" subcategory="Soccer Kits" />} />
+            
             <Route path="/products/cricket-kits" element={<CricketKitsPage />} />
+            <Route path="/products/cricket-whites" element={<GenericProductPage title="Cricket Whites" category="School & Team Sports" subcategory="Cricket Kits" />} />
+            <Route path="/products/cricket-training-kit" element={<GenericProductPage title="Cricket Training Kit" category="School & Team Sports" subcategory="Cricket Kits" />} />
+            <Route path="/products/full-cricket-kit" element={<GenericProductPage title="Full Cricket Kit" category="School & Team Sports" subcategory="Cricket Kits" />} />
+            
             <Route path="/products/athletics-kits" element={<AthleticsKitsPage />} />
+            <Route path="/products/track-field-uniforms" element={<GenericProductPage title="Track & Field Uniforms" category="School & Team Sports" subcategory="Athletics Kits" />} />
+            <Route path="/products/running-vests" element={<GenericProductPage title="Running Vests" category="School & Team Sports" subcategory="Athletics Kits" />} />
+            <Route path="/products/ski-pants" element={<GenericProductPage title="Ski Pants" category="School & Team Sports" subcategory="Athletics Kits" />} />
+            <Route path="/products/athletics-leggings" element={<GenericProductPage title="Leggings" category="School & Team Sports" subcategory="Athletics Kits" />} />
+            <Route path="/products/skorts" element={<GenericProductPage title="Skorts" category="School & Team Sports" subcategory="Athletics Kits" />} />
             
             <Route path="/products/matric-jackets" element={<MatricJacketsPage />} />
-            <Route path="/products/matric-jackets/*" element={<MatricJacketPage />} />
+            <Route path="/products/standard-matric-jacket" element={<MatricJacketPage />} />
+            <Route path="/products/premium-matric-jacket" element={<GenericProductPage title="Premium Matric Jacket" category="Schoolwear & Matric Apparel" subcategory="Matric Jackets" />} />
             
             <Route path="/products/golf-apparel" element={<GolfApparelPage />} />
+            <Route path="/products/golf-polo-shirts" element={<GenericProductPage title="Golf Polo Shirts" category="Other Sports & Clubs" subcategory="Golf Apparel" />} />
+            <Route path="/products/golf-dresses" element={<GenericProductPage title="Golf Dresses" category="Other Sports & Clubs" subcategory="Golf Apparel" />} />
+            
             <Route path="/products/darts-shirts" element={<DartsShirtsPage />} />
+            <Route path="/products/fishing-long-sleeve-cap" element={<GenericProductPage title="Fishing Long Sleeve with Cap" category="Other Sports & Clubs" subcategory="Fishing Gear" />} />
+            
+            {/* Add all other missing product routes */}
+            <Route path="/products/*" element={<GenericProductPage />} />
+            
             <Route path="/products/gymwear" element={<GymwearPage />} />
             <Route path="/products/staff-uniforms" element={<StaffUniformsPage />} />
             <Route path="/products/staff-jackets" element={<StaffJacketsPage />} />
