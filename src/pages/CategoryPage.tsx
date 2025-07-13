@@ -1,19 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Filter } from 'lucide-react';
 import Button from '../components/ui/Button';
-import { getAllCategories, getProductsByCategory, Product } from '../data/productsData';
+import { getProductsByCategory, getSubcategoriesByCategory } from '../data/productsData';
 
-const ProductsPage: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
+const CategoryPage: React.FC = () => {
+  const { categorySlug } = useParams<{ categorySlug: string }>();
+  const [selectedSubcategory, setSelectedSubcategory] = useState('All');
 
-  const categories = ['All', ...getAllCategories()];
-  const allProducts = getProductsByCategory('All');
+  // Map URL slugs to category names
+  const categoryMap: { [key: string]: string } = {
+    'school-team-sports': 'School & Team Sports',
+    'other-sports-clubs': 'Other Sports & Clubs',
+    'schoolwear-matric': 'Schoolwear & Matric Apparel',
+    'corporate-staff': 'Corporate & Staff Apparel',
+    'gym-fitness': 'Gym & Fitness Apparel',
+    'accessories-branding': 'Accessories & Branding'
+  };
+
+  const categoryName = categoryMap[categorySlug || ''] || '';
+  const products = getProductsByCategory(categoryName);
+  const subcategories = ['All', ...getSubcategoriesByCategory(categoryName)];
   
-  const filteredProducts = selectedCategory === 'All'
-    ? allProducts
-    : getProductsByCategory(selectedCategory);
+  const filteredProducts = selectedSubcategory === 'All' 
+    ? products 
+    : products.filter(product => product.subcategory === selectedSubcategory);
+
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  if (!categoryName) {
+    return (
+      <div className="pt-32 pb-16 bg-rb-black min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bebas text-rb-white mb-4">Category Not Found</h1>
+          <Link to="/products" className="text-rb-red hover:text-rb-white">
+            Back to Products
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -28,36 +59,35 @@ const ProductsPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-6xl font-bebas mb-6">Our Products</h1>
+            <h1 className="text-5xl md:text-6xl font-bebas mb-6">{categoryName}</h1>
             <p className="text-lg text-rb-gray-300">
-              Browse our complete range of custom sportswear and team apparel
+              Browse our complete range of {categoryName.toLowerCase()} products
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Filter Section */}
-      <section className="py-8 bg-rb-gray-900 border-b border-rb-gray-800">
-        <div className="container-custom">
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex flex-wrap gap-2">
-              {categories.map((category, index) => (
-                <button
-                  key={index}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full transition-all duration-300 ${
-                    selectedCategory === category
-                      ? 'bg-rb-red text-rb-white'
-                      : 'bg-rb-gray-800 text-rb-gray-400 hover:text-rb-white'
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
+      {subcategories.length > 1 && (
+        <section className="py-8 bg-rb-gray-900 border-b border-rb-gray-800">
+          <div className="container-custom">
+            <div className="flex items-center justify-end gap-4">
+              <Filter size={20} className="text-rb-gray-400" />
+              <select
+                value={selectedSubcategory}
+                onChange={(e) => setSelectedSubcategory(e.target.value)}
+                className="bg-rb-gray-800 text-rb-white border border-rb-gray-700 rounded-md px-4 py-2 focus:border-rb-red focus:outline-none"
+              >
+                {subcategories.map(subcategory => (
+                  <option key={subcategory} value={subcategory}>
+                    {subcategory === 'All' ? 'All Subcategories' : subcategory}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Products Grid */}
       <section className="py-16 bg-rb-gray-900">
@@ -110,12 +140,12 @@ const ProductsPage: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl font-bebas mb-6">Can't Find What You're Looking For?</h2>
+            <h2 className="text-4xl font-bebas mb-6">Ready to Order Your {categoryName}?</h2>
             <p className="text-rb-gray-300 mb-8">
-              Get in touch with our team to discuss custom designs and special requirements
+              Get in touch with our team for custom designs and bulk orders
             </p>
             <Button to="/contact" variant="primary" size="lg">
-              Contact Us
+              Get a Quote
             </Button>
           </motion.div>
         </div>
@@ -124,4 +154,4 @@ const ProductsPage: React.FC = () => {
   );
 };
 
-export default ProductsPage;
+export default CategoryPage;

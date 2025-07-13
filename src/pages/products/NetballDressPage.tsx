@@ -7,11 +7,11 @@ const NetballDressPage: React.FC = () => (
     description="Professional netball dresses designed for maximum comfort and mobility"
     heroImage="https://images.pexels.com/photos/8007513/pexels-photo-8007513.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2"
     fabricSpecs={[
-      'Premium polyester blend',
-      'Quick-dry technology',
-      'Anti-static treatment',
-      'UV protection (UPF 50+)',
-      'Breathable mesh panels'
+      'Durable performance blend',
+      'Lightweight & breathable',
+      'Reinforced seams for durability',
+      'Sweat-resistant finish',
+      'Designed for active use'
     ]}
     sizes={{
       youth: ['6-8', '10-12', '14-16'],

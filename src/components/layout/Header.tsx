@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Logo from './Logo';
+import { getAllCategories, getSubcategoriesByCategory } from '../../data/productsData';
 
 interface NavItem {
   label: string;
@@ -23,6 +24,9 @@ const Header: React.FC = () => {
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const location = useLocation();
 
+  // Get categories and subcategories from data
+  const categories = getAllCategories();
+  
   const navItems: NavItem[] = [
     { label: 'Home', path: '/' },
     {
@@ -35,42 +39,66 @@ const Header: React.FC = () => {
           ]
         },
         {
-          section: 'School & Team Sports',
+          section: '🏫 School & Team Sports',
           items: [
-            { label: 'Rugby Kits', path: '/products/rugby-kits' },
-            { label: 'Netball Kits', path: '/products/netball-kits' },
-            { label: 'Cricket Kits', path: '/products/cricket-kits' },
-            { label: 'Hockey Kits', path: '/products/hockey-kits' },
-            { label: 'Athletics Kits', path: '/products/athletics-kits' },
-            { label: 'Matric Jackets', path: '/products/matric-jackets' },
+            { label: 'View All School & Team Sports', path: '/products/category/school-team-sports' },
+            { label: 'Rugby Kits', path: '/products/subcategory/rugby-kits' },
+            { label: 'Netball Kits', path: '/products/subcategory/netball-kits' },
+            { label: 'Cricket Kits', path: '/products/subcategory/cricket-kits' },
+            { label: 'Hockey Kits', path: '/products/subcategory/hockey-kits' },
+            { label: 'Athletics Kits', path: '/products/subcategory/athletics-kits' },
           ],
         },
         {
-          section: 'Other Sports & Clubs',
+          section: '⚽ Other Sports & Clubs',
           items: [
-            { label: 'Soccer Kits', path: '/products/soccer-kits' },
-            { label: 'Golf Apparel', path: '/products/golf-apparel' },
-            { label: 'Darts Shirts', path: '/products/darts-shirts' },
-            { label: 'Gymwear', path: '/products/gymwear' },
+            { label: 'View All Other Sports & Clubs', path: '/products/category/other-sports-clubs' },
+            { label: 'Soccer Kits', path: '/products/subcategory/soccer-kits' },
+            { label: 'Golf Apparel', path: '/products/subcategory/golf-apparel' },
+            { label: 'Darts Shirts', path: '/products/subcategory/darts-shirts' },
+            { label: 'Fishing Gear', path: '/products/subcategory/fishing-gear' },
           ],
         },
         {
-          section: 'Corporate & Custom Apparel',
+          section: '🎓 Schoolwear & Matric Apparel',
           items: [
-            { label: 'Staff Uniforms', path: '/products/staff-uniforms' },
-            { label: 'Staff Jackets', path: '/products/staff-jackets' },
-            { label: 'Teamwear Sets', path: '/products/teamwear-sets' },
+            { label: 'View All Schoolwear & Matric', path: '/products/category/schoolwear-matric' },
+            { label: 'Matric Jackets', path: '/products/subcategory/matric-jackets' },
+            { label: 'Tracksuits & Hoodies', path: '/products/subcategory/tracksuits-hoodies' },
+            { label: 'Female Apparel', path: '/products/subcategory/female-apparel' },
+            { label: 'Jackets', path: '/products/subcategory/jackets' },
           ],
         },
         {
-          section: 'Accessories',
+          section: '🧑‍💼 Corporate & Staff Apparel',
           items: [
-            { label: 'Long Socks', path: '/contact' },
-            { label: 'Short Socks', path: '/contact' },
-            { label: 'Tog Bags', path: '/contact' },
-            { label: 'Backpacks', path: '/contact' },
-            { label: 'Caps', path: '/contact' },
-            { label: 'Bucket Hats', path: '/contact' },
+            { label: 'View All Corporate & Staff', path: '/products/category/corporate-staff' },
+            { label: 'Shirts & Tops', path: '/products/subcategory/shirts-tops' },
+            { label: 'Jackets', path: '/products/subcategory/corporate-jackets' },
+            { label: 'Tracksuits & Warmups', path: '/products/subcategory/tracksuits-warmups' },
+            { label: 'Golf Wear', path: '/products/subcategory/golf-wear' },
+            { label: 'Accessories', path: '/products/subcategory/corporate-accessories' },
+          ],
+        },
+        {
+          section: '🏋️ Gym & Fitness Apparel',
+          items: [
+            { label: 'View All Gym & Fitness', path: '/products/category/gym-fitness' },
+            { label: 'Tops', path: '/products/subcategory/gym-tops' },
+            { label: 'Bottoms', path: '/products/subcategory/gym-bottoms' },
+            { label: 'Outerwear', path: '/products/subcategory/gym-outerwear' },
+            { label: 'Lifestyle Apparel', path: '/products/subcategory/lifestyle-apparel' },
+          ],
+        },
+        {
+          section: '🎒 Accessories & Branding',
+          items: [
+            { label: 'View All Accessories & Branding', path: '/products/category/accessories-branding' },
+            { label: 'Socks', path: '/products/subcategory/socks' },
+            { label: 'Headwear', path: '/products/subcategory/headwear' },
+            { label: 'Bags', path: '/products/subcategory/bags' },
+            { label: 'Warmup & Training', path: '/products/subcategory/warmup-training' },
+            { label: 'Branding & Add-ons', path: '/products/subcategory/branding-add-ons' },
           ],
         },
       ],
@@ -110,6 +138,9 @@ const Header: React.FC = () => {
     setIsOpen(false);
     setExpandedSections([]);
     setIsProductsOpen(false);
+    
+    // Scroll to top on route change
+    window.scrollTo(0, 0);
   }, [location]);
 
   const toggleSection = (section: string) => {
@@ -140,7 +171,7 @@ const Header: React.FC = () => {
 
     return (
       <div className={`${item.label === 'Products' ? (isProductsOpen ? 'block' : 'hidden') : 'group-hover:block hidden'} absolute top-full left-0 pt-2`}>
-        <div className="bg-rb-gray-900 rounded-lg shadow-xl border border-rb-gray-800 max-h-[calc(100vh-200px)] overflow-y-auto w-80">
+        <div className="bg-rb-gray-900 rounded-lg shadow-xl border border-rb-gray-800 max-h-[calc(100vh-200px)] overflow-y-auto w-96">
           {item.children.map((section, idx) => (
             <div key={idx} className="p-4">
               <h4 className="text-rb-gray-400 text-sm font-semibold mb-3 uppercase tracking-wider">

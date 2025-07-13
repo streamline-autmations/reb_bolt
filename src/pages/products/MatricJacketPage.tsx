@@ -7,12 +7,11 @@ const MatricJacketPage: React.FC = () => (
     description="Premium matric jackets designed to celebrate your achievements in style"
     heroImage="https://images.pexels.com/photos/8112199/pexels-photo-8112199.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2"
     fabricSpecs={[
-      'Premium wool blend shell',
-      'Luxury satin lining',
-      'Advanced embroidery options',
-      'Leather sleeve patches',
-      'YKK premium zippers',
-      'Interior pockets'
+      'Durable performance blend',
+      'Lightweight & breathable',
+      'Reinforced seams for durability',
+      'Sweat-resistant finish',
+      'Designed for active use'
     ]}
     sizes={{
       regular: ['XS - XL', '2XL - 3XL', '4XL - 5XL'],

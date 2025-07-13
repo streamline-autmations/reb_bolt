@@ -61,11 +61,11 @@ const RugbyJerseysPage: React.FC = () => {
               >
                 <h3 className="text-xl font-bebas mb-4">Fabric Specifications</h3>
                 <ul className="space-y-2 text-rb-gray-300">
-                  <li>• Premium polyester blend</li>
-                  <li>• Moisture-wicking technology</li>
-                  <li>• Reinforced stitching</li>
-                  <li>• Anti-microbial treatment</li>
-                  <li>• UV protection (UPF 50+)</li>
+                  <li>• Durable performance blend</li>
+                  <li>• Lightweight & breathable</li>
+                  <li>• Reinforced seams for durability</li>
+                  <li>• Sweat-resistant finish</li>
+                  <li>• Designed for active use</li>
                 </ul>
               </motion.div>
 

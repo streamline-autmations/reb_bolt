@@ -13,6 +13,10 @@ import ContactPage from './pages/ContactPage';
 import ProductsPage from './pages/ProductsPage';
 import TrackOrderPage from './pages/TrackOrderPage';
 
+// Category and Subcategory Pages
+import CategoryPage from './pages/CategoryPage';
+import SubcategoryPage from './pages/SubcategoryPage';
+
 // Product Pages - using simplified structure
 import RugbyKitsPage from './pages/products/RugbyKitsPage';
 import RugbyJerseysPage from './pages/products/RugbyJerseysPage';
@@ -81,6 +85,10 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/track-order" element={<TrackOrderPage />} />
             <Route path="/products" element={<ProductsPage />} />
+            
+            {/* Category and Subcategory Routes */}
+            <Route path="/products/category/:categorySlug" element={<CategoryPage />} />
+            <Route path="/products/subcategory/:subcategorySlug" element={<SubcategoryPage />} />
             
             {/* Product Routes - simplified */}
             <Route path="/products/rugby-kits" element={<RugbyKitsPage />} />

@@ -9,14 +9,12 @@ import FAQSection from '../components/ui/FAQSection';
 
 const HomePage: React.FC = () => {
   const categories = [
-    { name: 'Rugby', image: '/category_rugby.jpg', description: 'Professional rugby kits and training gear', path: '/products/rugby-kits' },
-    { name: 'Netball', image: '/category_netball.jpg', description: 'Custom netball uniforms and accessories', path: '/products/netball-kits' },
-    { name: 'Matric Jackets', image: '/category_matric.jpg', description: 'Personalized matric jackets and hoodies', path: '/products/matric-jackets' },
-    { name: 'Hockey', image: '/category_hockey.jpg', description: 'High-performance hockey uniforms', path: '/products/hockey-kits' },
-    { name: 'Soccer', image: 'https://images.pexels.com/photos/274422/pexels-photo-274422.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=2', description: 'Professional soccer kits and training wear', path: '/products/soccer-kits' },
-    { name: 'Cricket', image: '/category_cricket.jpg', description: 'Traditional cricket whites and training gear', path: '/products/cricket-kits' },
-    { name: 'Tracksuits', image: '/category_tracksuits.jpg', description: 'Custom team tracksuits and warm-up gear', path: '/products/teamwear-sets' },
-    { name: 'Golf Shirts', image: '/category_golf.jpg', description: 'Premium golf apparel and accessories', path: '/products/golf-apparel' }
+    { name: 'School Sports', image: '/category_rugby.jpg', description: 'Rugby, netball, cricket, hockey & athletics', path: '/products/category/school-team-sports' },
+    { name: 'Other Sports', image: 'https://images.pexels.com/photos/274422/pexels-photo-274422.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=2', description: 'Soccer, golf, darts & fishing gear', path: '/products/category/other-sports-clubs' },
+    { name: 'Schoolwear', image: '/category_matric.jpg', description: 'Matric jackets, tracksuits & school apparel', path: '/products/category/schoolwear-matric' },
+    { name: 'Corporate', image: '/category_golf.jpg', description: 'Staff uniforms, jackets & corporate wear', path: '/products/category/corporate-staff' },
+    { name: 'Gym & Fitness', image: '/category_tracksuits.jpg', description: 'Performance wear & fitness apparel', path: '/products/category/gym-fitness' },
+    { name: 'Accessories', image: '/category_hockey.jpg', description: 'Socks, caps, bags & branding items', path: '/products/category/accessories-branding' }
   ];
   
   return (

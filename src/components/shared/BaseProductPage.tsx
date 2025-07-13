@@ -194,9 +194,11 @@ const BaseProductPage: React.FC<BaseProductPageProps> = ({
               >
                 <h3 className="text-xl font-bebas mb-4">Order Information</h3>
                 <ul className="space-y-2 text-rb-gray-300 text-sm">
-                  {(orderInfo || defaultOrderInfo).map((info, i) => (
-                    <li key={i}>• {info}</li>
-                  ))}
+                  <li>• Durable performance blend</li>
+                  <li>• Lightweight & breathable</li>
+                  <li>• Reinforced seams for durability</li>
+                  <li>• Sweat-resistant finish</li>
+                  <li>• Designed for active use</li>
                 </ul>
               </motion.div>
 
